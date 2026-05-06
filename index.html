@@ -4,133 +4,132 @@
 <meta charset="UTF-8">
 <title>Tanulói adatlap</title>
 <style>
-body { font-family: Arial; max-width: 900px; margin: auto; }
-h1 { text-align: center; }
-label { display:block; margin-top:10px; }
-.section { border:1px solid #ccc; padding:10px; margin-top:20px; }
-.hidden { display:none; }
-table { width:100%; border-collapse: collapse; }
-td, th { border:1px solid #ccc; padding:5px; }
+    body { font-family: Arial; max-width: 800px; margin: auto; }
+    h1 { text-align: center; }
+    label { display: block; margin-top: 10px; }
+    .section { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
 </style>
-
-<script>
-function toggleAllergia() {
-  const igen = document.getElementById("allergia_igen");
-  const resz = document.getElementById("allergia_resz");
-
-  if (igen.checked) resz.classList.remove("hidden");
-  else resz.classList.add("hidden");
-}
-</script>
 </head>
-
 <body>
 
 <h1>Tanulói adatlap</h1>
 
-<form id="adatlap">
+<form>
 
 <div class="section">
 <h3>Személyes adatok</h3>
 
-<label>Név <input name="nev" required></label>
+<label>Név:
+<input type="text" name="nev"></label>
 
 <label>Neme:
-<input type="radio" name="neme" value="férfi"> férfi
-<input type="radio" name="neme" value="nő"> nő
+<input type="radio" name="neme" value="ferfi"> férfi
+<input type="radio" name="neme" value="no"> nő
 </label>
 
-<label>Tanulói azonosító <input name="azonosito"></label>
-<label>Születési hely <input name="szuletesi_hely"></label>
-<label>Születési idő <input type="date" name="szuletesi_ido"></label>
-<label>Anyja neve <input name="anyja_neve"></label>
+<label>Tanulói azonosító:
+<input type="text" name="azonosito"></label>
 
-<label>Állampolgárság <input name="allampolgarsag"></label>
-<label>Anyanyelv <input name="anyanyelv"></label>
+<label>Születési hely:
+<input type="text" name="szuletesi_hely"></label>
 
-<label>Tartózkodási okirat (külföldi esetén)
-<input name="tartozkodasi_okirat"></label>
+<label>Születési idő:
+<input type="date" name="szuletesi_ido"></label>
 
+<label>Anyja leánykori neve:
+<input type="text" name="anyja_neve"></label>
+
+<label>Állampolgárság:
+<input type="text" name="allampolgarsag"></label>
+
+<label>Anyanyelv:
+<input type="text" name="anyanyelv"></label>
+
+<label>Tartózkodási okirat:
+<input type="text" name="okirat"></label>
 </div>
 
 <div class="section">
 <h3>Igazolványok</h3>
-<label>Személyi szám <input name="szemelyi"></label>
-<label>TAJ <input name="taj"></label>
-<label>Adószám <input name="adoszam"></label>
+
+<label>Személyi igazolvány száma:
+<input type="text" name="szemelyi"></label>
+
+<label>TAJ szám:
+<input type="text" name="taj"></label>
+
+<label>Adószám:
+<input type="text" name="adoszam"></label>
 </div>
 
 <div class="section">
-<h3>Egyéb</h3>
+<h3>Egyéb adatok</h3>
 
-<label>Gyermekek száma <input name="gyermekek_szama"></label>
+<label>Gyermekek száma a családban:
+<input type="number" name="gyermekek_szama"></label>
 
-<label>Gyermekvédelmi kedvezmény:
+<label>Rendszeres gyermekvédelmi kedvezmény:
 <input type="radio" name="kedvezmeny" value="igen"> igen
 <input type="radio" name="kedvezmeny" value="nem"> nem
 </label>
 
-<label>BTM:
+<label>Tartósan beteg vagy fogyatékos:
+<input type="radio" name="beteg" value="igen"> igen
+<input type="radio" name="beteg" value="nem"> nem
+</label>
+
+<label>BTM tanuló:
 <input type="radio" name="btm" value="igen"> igen
 <input type="radio" name="btm" value="nem"> nem
 </label>
 
-<label>SNI:
+<label>SNI tanuló:
 <input type="radio" name="sni" value="igen"> igen
 <input type="radio" name="sni" value="nem"> nem
 </label>
 
-<label>Gyógyszerallergia:
-<input type="radio" name="allergia" value="igen" id="allergia_igen" onclick="toggleAllergia()"> igen
-<input type="radio" name="allergia" value="nem" onclick="toggleAllergia()"> nem
+<label>Állami gondozott:
+<input type="radio" name="allami" value="igen"> igen
+<input type="radio" name="allami" value="nem"> nem
 </label>
 
-<div id="allergia_resz" class="hidden">
-<label>Milyen gyógyszerre?
-<input name="allergia_reszletek"></label>
-</div>
+<label>Szociális elhelyezés:
+<input type="radio" name="szocialis" value="igen"> igen
+<input type="radio" name="szocialis" value="nem"> nem
+</label>
+
+<label>Gyógytestnevelés:
+<input type="radio" name="gyogytest" value="igen"> igen
+<input type="radio" name="gyogytest" value="nem"> nem
+</label>
+
+<label>Kollégista:
+<input type="radio" name="kollegista" value="igen"> igen
+<input type="radio" name="kollegista" value="nem"> nem
+</label>
 
 </div>
 
 <div class="section">
-<h3>Elérhetőségek</h3>
+<h3>Gondviselő adatai</h3>
 
-<table>
-<tr><th></th><th>Név</th><th>Telefon</th><th>Email</th></tr>
-<tr>
-<td>Apa</td>
-<td><input name="apa_nev"></td>
-<td><input name="apa_tel"></td>
-<td><input name="apa_email"></td>
-</tr>
-<tr>
-<td>Anya</td>
-<td><input name="anya_nev"></td>
-<td><input name="anya_tel"></td>
-<td><input name="anya_email"></td>
-</tr>
-<tr>
-<td>Tanuló</td>
-<td><input name="tanulo_nev"></td>
-<td><input name="tanulo_tel"></td>
-<td><input name="tanulo_email"></td>
-</tr>
-</table>
+<label>Gondviselő neve:
+<input type="text" name="gondviselo"></label>
 
-</div>
+<label>Rokonsági fok:</label>
+<input type="radio" name="rokon" value="apa"> édesapa
+<input type="radio" name="rokon" value="anya"> édesanya
+<input type="radio" name="rokon" value="nagyszulo"> nagyszülő
+<input type="radio" name="rokon" value="nevelo"> nevelőszülő
 
-<div class="section">
-<h3>Lakcím</h3>
+<label>Egyéb:
+<input type="text" name="egyeb_rokon"></label>
 
-<label>Irányítószám <input name="irsz"></label>
-<label>Település <input name="telepules"></label>
-<label>Utca <input name="utca"></label>
+<label>Egyedül neveli:
+<input type="radio" name="egyedul" value="igen"> igen
+<input type="radio" name="egyedul" value="nem"> nem
+</label>
 
-</div>
-
-<div class="section">
-<h3>Kitöltés</h3>
-<label>Kitöltés időpontja <input type="date" name="datum"></label>
 </div>
 
 <br>
@@ -138,20 +137,6 @@ function toggleAllergia() {
 
 </form>
 
-<script>
-document.getElementById("adatlap").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  fetch("IDE_A_SCRIPT_URL", {
-    method: "POST",
-    body: formData
-  })
-  .then(()=>alert("Sikeres beküldés!"))
-  .catch(()=>alert("Hiba történt!"));
-});
-</script>
-
 </body>
+</html>
 </html>
