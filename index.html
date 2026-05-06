@@ -72,7 +72,7 @@ function toggleAllergia(){
 <input type="radio" name="kedvezmeny" value="nem"> nem
 </label>
 
-<label>Tartósan beteg vagy fogyatékos:
+<label>Tartósan beteg vagy súlyosan fogyatékos:
 <input type="radio" name="beteg" value="igen"> igen
 <input type="radio" name="beteg" value="nem"> nem
 </label>
@@ -92,12 +92,12 @@ function toggleAllergia(){
 <input type="radio" name="allami" value="nem"> nem
 </label>
 
-<label>Szociális ellátás:
+<label>Szociális elhelyezésben él:
 <input type="radio" name="szocialis" value="igen"> igen
 <input type="radio" name="szocialis" value="nem"> nem
 </label>
 
-<label>Gyógytestnevelés:
+<label>Gyógytestnevelésre jár:
 <input type="radio" name="gyogytesi" value="igen"> igen
 <input type="radio" name="gyogytesi" value="nem"> nem
 </label>
@@ -133,7 +133,7 @@ function toggleAllergia(){
 
 <label>Egyéb <input name="rokonsag_egyeb"></label>
 
-<label>Egyedül neveli:
+<label>Gyermekét egyedül neveli:
 <input type="radio" name="egyedul" value="igen"> igen
 <input type="radio" name="egyedul" value="nem"> nem
 </label>
@@ -144,7 +144,7 @@ function toggleAllergia(){
 <h3>Elérhetőségek</h3>
 
 <table>
-<tr><th></th><th>Név</th><th>Telefon</th><th>Email</th></tr>
+<tr><th></th><th>Név</th><th>Telefonszám</th><th>E-mail</th></tr>
 
 <tr>
 <td>Apa</td>
@@ -172,20 +172,24 @@ function toggleAllergia(){
 </div>
 
 <div class="section">
-<h3>Lakcím</h3>
+<h3>Lakóhely (lakcímkártya szerint)</h3>
 
-<label>Irányítószám <input name="irsz"></label>
-<label>Település <input name="telepules"></label>
-<label>Utca, házszám <input name="utca"></label>
+<label>Irányítószám <input name="lak_irsz"></label>
+<label>Település <input name="lak_telepules"></label>
+<label>Utca, házszám <input name="lak_utca"></label>
+<label>Emelet <input name="lak_emelet"></label>
+<label>Ajtó <input name="lak_ajto"></label>
 
 </div>
 
 <div class="section">
 <h3>Tartózkodási hely</h3>
 
-<label>Irányítószám <input name="irsz_tart"></label>
-<label>Település <input name="telepules_tart"></label>
-<label>Utca <input name="utca_tart"></label>
+<label>Irányítószám <input name="tart_irsz"></label>
+<label>Település <input name="tart_telepules"></label>
+<label>Utca, házszám <input name="tart_utca"></label>
+<label>Emelet <input name="tart_emelet"></label>
+<label>Ajtó <input name="tart_ajto"></label>
 
 </div>
 
