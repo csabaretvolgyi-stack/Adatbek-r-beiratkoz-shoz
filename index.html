@@ -12,6 +12,8 @@ label { display:block; margin-top:8px; }
 table { width:100%; border-collapse: collapse; margin-top:10px;}
 td, th { border:1px solid #ccc; padding:6px; }
 .hidden { display:none; }
+.flex-row { display:flex; gap:10px; }
+.flex-row div { flex:1; }
 </style>
 
 <script>
@@ -177,8 +179,11 @@ function toggleAllergia(){
 <label>Irányítószám <input name="lak_irsz"></label>
 <label>Település <input name="lak_telepules"></label>
 <label>Utca, házszám <input name="lak_utca"></label>
-<label>Emelet <input name="lak_emelet"></label>
-<label>Ajtó <input name="lak_ajto"></label>
+
+<div class="flex-row">
+  <div><label>Emelet <input name="lak_emelet"></label></div>
+  <div><label>Ajtó <input name="lak_ajto"></label></div>
+</div>
 
 </div>
 
@@ -188,16 +193,17 @@ function toggleAllergia(){
 <label>Irányítószám <input name="tart_irsz"></label>
 <label>Település <input name="tart_telepules"></label>
 <label>Utca, házszám <input name="tart_utca"></label>
-<label>Emelet <input name="tart_emelet"></label>
-<label>Ajtó <input name="tart_ajto"></label>
+
+<div class="flex-row">
+  <div><label>Emelet <input name="tart_emelet"></label></div>
+  <div><label>Ajtó <input name="tart_ajto"></label></div>
+</div>
 
 </div>
 
 <div class="section">
 <h3>Kitöltés</h3>
-
 <label>Kitöltés időpontja <input type="date" name="datum"></label>
-
 </div>
 
 <br>
@@ -215,8 +221,13 @@ document.getElementById("adatlap").addEventListener("submit", function(e){
     method: "POST",
     body: formData
   })
-  .then(()=>alert("Sikeres beküldés!"))
-  .catch(()=>alert("Hiba történt!"));
+  .then(()=>{
+    alert("Sikeres beküldés!");
+    this.reset();
+  })
+  .catch(()=>{
+    alert("Hiba történt!");
+  });
 });
 </script>
 
