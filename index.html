@@ -4,11 +4,30 @@
 <meta charset="UTF-8">
 <title>Tanulói adatlap</title>
 <style>
-    body { font-family: Arial; max-width: 800px; margin: auto; }
+    body { font-family: Arial; max-width: 900px; margin: auto; }
     h1 { text-align: center; }
     label { display: block; margin-top: 10px; }
     .section { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td, th { border: 1px solid #000; padding: 5px; }
+    .signature { margin-top: 40px; display: flex; justify-content: space-between; }
+    .sig-box { width: 30%; text-align: center; }
+    .hidden { display: none; }
 </style>
+
+<script>
+function toggleAllergia() {
+    const igen = document.getElementById("allergia_igen");
+    const mező = document.getElementById("allergia_reszletek");
+
+    if (igen.checked) {
+        mező.classList.remove("hidden");
+    } else {
+        mező.classList.add("hidden");
+    }
+}
+</script>
+
 </head>
 <body>
 
@@ -19,117 +38,160 @@
 <div class="section">
 <h3>Személyes adatok</h3>
 
-<label>Név:
-<input type="text" name="nev"></label>
+<label>Név: <input type="text" name="nev"></label>
 
 <label>Neme:
-<input type="radio" name="neme" value="ferfi"> férfi
-<input type="radio" name="neme" value="no"> nő
+<input type="radio" name="neme"> férfi
+<input type="radio" name="neme"> nő
 </label>
 
-<label>Tanulói azonosító:
-<input type="text" name="azonosito"></label>
-
-<label>Születési hely:
-<input type="text" name="szuletesi_hely"></label>
-
-<label>Születési idő:
-<input type="date" name="szuletesi_ido"></label>
-
-<label>Anyja leánykori neve:
-<input type="text" name="anyja_neve"></label>
-
-<label>Állampolgárság:
-<input type="text" name="allampolgarsag"></label>
-
-<label>Anyanyelv:
-<input type="text" name="anyanyelv"></label>
-
-<label>Tartózkodási okirat:
-<input type="text" name="okirat"></label>
+<label>Tanulói azonosító: <input type="text"></label>
+<label>Születési hely: <input type="text"></label>
+<label>Születési idő: <input type="date"></label>
+<label>Anyja neve: <input type="text"></label>
+<label>Állampolgárság: <input type="text"></label>
+<label>Anyanyelv: <input type="text"></label>
 </div>
 
 <div class="section">
 <h3>Igazolványok</h3>
-
-<label>Személyi igazolvány száma:
-<input type="text" name="szemelyi"></label>
-
-<label>TAJ szám:
-<input type="text" name="taj"></label>
-
-<label>Adószám:
-<input type="text" name="adoszam"></label>
+<label>Személyi igazolvány száma: <input type="text"></label>
+<label>TAJ szám: <input type="text"></label>
+<label>Adószám: <input type="text"></label>
 </div>
 
 <div class="section">
 <h3>Egyéb adatok</h3>
 
-<label>Gyermekek száma a családban:
-<input type="number" name="gyermekek_szama"></label>
+<label>Gyermekek száma: <input type="number"></label>
 
-<label>Rendszeres gyermekvédelmi kedvezmény:
-<input type="radio" name="kedvezmeny" value="igen"> igen
-<input type="radio" name="kedvezmeny" value="nem"> nem
+<label>Gyermekvédelmi kedvezmény:
+<input type="radio" name="kedv"> igen
+<input type="radio" name="kedv"> nem
 </label>
 
-<label>Tartósan beteg vagy fogyatékos:
-<input type="radio" name="beteg" value="igen"> igen
-<input type="radio" name="beteg" value="nem"> nem
+<label>Tartós betegség:
+<input type="radio" name="beteg"> igen
+<input type="radio" name="beteg"> nem
 </label>
 
-<label>BTM tanuló:
-<input type="radio" name="btm" value="igen"> igen
-<input type="radio" name="btm" value="nem"> nem
+<label>BTM:
+<input type="radio" name="btm"> igen
+<input type="radio" name="btm"> nem
 </label>
 
-<label>SNI tanuló:
-<input type="radio" name="sni" value="igen"> igen
-<input type="radio" name="sni" value="nem"> nem
-</label>
-
-<label>Állami gondozott:
-<input type="radio" name="allami" value="igen"> igen
-<input type="radio" name="allami" value="nem"> nem
-</label>
-
-<label>Szociális elhelyezés:
-<input type="radio" name="szocialis" value="igen"> igen
-<input type="radio" name="szocialis" value="nem"> nem
-</label>
-
-<label>Gyógytestnevelés:
-<input type="radio" name="gyogytest" value="igen"> igen
-<input type="radio" name="gyogytest" value="nem"> nem
+<label>SNI:
+<input type="radio" name="sni"> igen
+<input type="radio" name="sni"> nem
 </label>
 
 <label>Kollégista:
-<input type="radio" name="kollegista" value="igen"> igen
-<input type="radio" name="kollegista" value="nem"> nem
+<input type="radio" name="kollegista"> igen
+<input type="radio" name="kollegista"> nem
 </label>
+
+<label><strong>Van-e gyógyszerallergiája?</strong></label>
+
+<label>
+<input type="radio" name="gyogyszerallergia" id="allergia_igen" value="igen" onclick="toggleAllergia()"> igen
+</label>
+
+<label>
+<input type="radio" name="gyogyszerallergia" value="nem" onclick="toggleAllergia()"> nem
+</label>
+
+<div id="allergia_reszletek" class="hidden">
+<label>Milyen gyógyszerre?
+<input type="text" name="allergia_reszletek"></label>
+</div>
 
 </div>
 
 <div class="section">
-<h3>Gondviselő adatai</h3>
+<h3>Gondviselő</h3>
+<label>Név: <input type="text"></label>
 
-<label>Gondviselő neve:
-<input type="text" name="gondviselo"></label>
-
-<label>Rokonsági fok:</label>
-<input type="radio" name="rokon" value="apa"> édesapa
-<input type="radio" name="rokon" value="anya"> édesanya
-<input type="radio" name="rokon" value="nagyszulo"> nagyszülő
-<input type="radio" name="rokon" value="nevelo"> nevelőszülő
-
-<label>Egyéb:
-<input type="text" name="egyeb_rokon"></label>
-
-<label>Egyedül neveli:
-<input type="radio" name="egyedul" value="igen"> igen
-<input type="radio" name="egyedul" value="nem"> nem
+<label>Rokonság:
+<input type="radio" name="rokon"> apa
+<input type="radio" name="rokon"> anya
+<input type="radio" name="rokon"> nagyszülő
+<input type="radio" name="rokon"> nevelő
 </label>
 
+<label>Egyedül neveli:
+<input type="radio" name="egyedul"> igen
+<input type="radio" name="egyedul"> nem
+</label>
+</div>
+
+<div class="section">
+<h3>Elérhetőségek</h3>
+
+<table>
+<tr>
+<th></th>
+<th>Telefonszám</th>
+<th>E-mail</th>
+</tr>
+<tr>
+<td>Apa</td>
+<td><input type="text"></td>
+<td><input type="email"></td>
+</tr>
+<tr>
+<td>Anya</td>
+<td><input type="text"></td>
+<td><input type="email"></td>
+</tr>
+<tr>
+<td>Tanuló</td>
+<td><input type="text"></td>
+<td><input type="email"></td>
+</tr>
+</table>
+
+</div>
+
+<div class="section">
+<h3>Lakcím adatok</h3>
+
+<h4>Állandó lakcím</h4>
+<label>Irányítószám: <input type="text"></label>
+<label>Település: <input type="text"></label>
+<label>Utca, házszám: <input type="text"></label>
+<label>Emelet, ajtó: <input type="text"></label>
+
+<h4>Tartózkodási hely</h4>
+<label>Irányítószám: <input type="text"></label>
+<label>Település: <input type="text"></label>
+<label>Utca, házszám: <input type="text"></label>
+<label>Emelet, ajtó: <input type="text"></label>
+
+</div>
+
+<div class="section">
+<h3>Egyéb</h3>
+
+<label>A beiratkozás napja:
+<input type="date"></label>
+
+</div>
+
+<div class="signature">
+<div class="sig-box">
+<p>______________________</p>
+<p>Apa aláírása</p>
+</div>
+
+<div class="sig-box">
+<p>______________________</p>
+<p>Anya aláírása</p>
+</div>
+
+<div class="sig-box">
+<p>______________________</p>
+<p>Tanuló aláírása</p>
+</div>
 </div>
 
 <br>
