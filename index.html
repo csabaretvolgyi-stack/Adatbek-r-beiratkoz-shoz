@@ -217,7 +217,7 @@ document.getElementById("adatlap").addEventListener("submit", function(e){
 
   const formData = new FormData(this);
 
-  fetch("IDE_A_SCRIPT_URL", {
+  fetch("https://docs.google.com/spreadsheets/d/1gLvkGLL1WI6Y_q8CcyvTljnh0TygIdniFPcs1c0nC7Y/edit?gid=0#gid=0", {
     method: "POST",
     body: formData
   })
