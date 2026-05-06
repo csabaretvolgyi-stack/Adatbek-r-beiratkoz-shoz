@@ -3,16 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Tanulói adatlap</title>
+
 <style>
-    body { font-family: Arial; max-width: 900px; margin: auto; }
-    h1 { text-align: center; }
-    label { display: block; margin-top: 10px; }
-    .section { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    td, th { border: 1px solid #000; padding: 5px; }
-    .signature { margin-top: 40px; display: flex; justify-content: space-between; }
-    .sig-box { width: 30%; text-align: center; }
-    .hidden { display: none; }
+body { font-family: Arial; max-width: 900px; margin: auto; }
+h1 { text-align: center; }
+label { display: block; margin-top: 10px; }
+.section { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+.hidden { display: none; }
 </style>
 
 <script>
@@ -26,24 +23,15 @@ function toggleAllergia() {
         mezo.classList.add("hidden");
     }
 }
-
-function setDatumIdo() {
-    const now = new Date();
-    const iso = now.toISOString().slice(0,16);
-    document.getElementById("datum").value = iso;
-}
 </script>
 
 </head>
 
-<body onload="setDatumIdo()">
+<body>
 
 <h1>Tanulói adatlap</h1>
 
-<form action="https://formsubmit.co/kossuth.titkarsag@gmail.com" method="POST">
-
-<input type="hidden" name="_subject" value="Új tanulói adatlap">
-<input type="hidden" name="_captcha" value="false">
+<form id="adatlap">
 
 <div class="section">
 <h3>Személyes adatok</h3>
@@ -55,54 +43,30 @@ function setDatumIdo() {
 <input type="radio" name="neme" value="nő"> nő
 </label>
 
-<label>Tanulói azonosító: <input type="text" name="azonosito"></label>
 <label>Születési hely: <input type="text" name="szuletesi_hely"></label>
 <label>Születési idő: <input type="date" name="szuletesi_ido"></label>
 <label>Anyja neve: <input type="text" name="anyja_neve"></label>
-<label>Állampolgárság: <input type="text" name="allampolgarsag"></label>
-<label>Anyanyelv: <input type="text" name="anyanyelv"></label>
 
-<label>Külföldi állampolgárságú tanuló esetén tartózkodási okirat:
+<label>Állampolgárság: <input type="text" name="allampolgarsag"></label>
+
+<label>Tartózkodási okirat:
 <input type="text" name="tartozkodasi_okirat"></label>
 
 </div>
 
 <div class="section">
-<h3>Igazolványok</h3>
-<label>Személyi igazolvány száma: <input type="text" name="szemelyi"></label>
-<label>TAJ szám: <input type="text" name="taj"></label>
-<label>Adószám: <input type="text" name="adoszam"></label>
+<h3>Elérhetőségek</h3>
+
+<label>Apa neve: <input type="text" name="apa_nev"></label>
+<label>Apa telefon: <input type="text" name="apa_tel"></label>
+
+<label>Anya neve: <input type="text" name="anya_nev"></label>
+<label>Anya telefon: <input type="text" name="anya_tel"></label>
+
 </div>
 
 <div class="section">
-<h3>Egyéb adatok</h3>
-
-<label>Gyermekek száma: <input type="number" name="gyermekek_szama"></label>
-
-<label>Gyermekvédelmi kedvezmény:
-<input type="radio" name="kedv" value="igen"> igen
-<input type="radio" name="kedv" value="nem"> nem
-</label>
-
-<label>Tartós betegség:
-<input type="radio" name="beteg" value="igen"> igen
-<input type="radio" name="beteg" value="nem"> nem
-</label>
-
-<label>BTM:
-<input type="radio" name="btm" value="igen"> igen
-<input type="radio" name="btm" value="nem"> nem
-</label>
-
-<label>SNI:
-<input type="radio" name="sni" value="igen"> igen
-<input type="radio" name="sni" value="nem"> nem
-</label>
-
-<label>Kollégista:
-<input type="radio" name="kollegista" value="igen"> igen
-<input type="radio" name="kollegista" value="nem"> nem
-</label>
+<h3>Egyéb</h3>
 
 <label><strong>Van-e gyógyszerallergiája?</strong></label>
 
@@ -121,50 +85,33 @@ function setDatumIdo() {
 
 </div>
 
-<div class="section">
-<h3>Elérhetőségek</h3>
-
-<table>
-<tr>
-<th>Kapcsolat</th>
-<th>Név</th>
-<th>Telefonszám</th>
-<th>E-mail</th>
-</tr>
-<tr>
-<td>Apa</td>
-<td><input type="text" name="apa_nev"></td>
-<td><input type="text" name="apa_tel"></td>
-<td><input type="email" name="apa_email"></td>
-</tr>
-<tr>
-<td>Anya</td>
-<td><input type="text" name="anya_nev"></td>
-<td><input type="text" name="anya_tel"></td>
-<td><input type="email" name="anya_email"></td>
-</tr>
-<tr>
-<td>Tanuló</td>
-<td><input type="text" name="tanulo_nev"></td>
-<td><input type="text" name="tanulo_tel"></td>
-<td><input type="email" name="tanulo_email"></td>
-</tr>
-</table>
-
-</div>
-
-<div class="section">
-<h3>Egyéb</h3>
-
-<label>A kitöltés időpontja:
-<input type="datetime-local" id="datum" name="datum"></label>
-
-</div>
-
 <br>
 <button type="submit">Beküldés</button>
 
 </form>
+
+<!-- 🔥 EZ A LÉNYEG -->
+
+<script>
+document.getElementById("adatlap").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch("IDE_A_SCRIPT_URL", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => {
+        alert("Sikeres beküldés!");
+        document.getElementById("adatlap").reset();
+    })
+    .catch(err => {
+        alert("Hiba történt!");
+        console.error(err);
+    });
+});
+</script>
 
 </body>
 </html>
