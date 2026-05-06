@@ -2,41 +2,67 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Kapcsolatfelvételi űrlap</title>
+  <title>Regisztrációs űrlap</title>
+  <style>
+    body { font-family: Arial; margin: 20px; max-width: 600px; }
+    h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; }
+  </style>
 </head>
 <body>
 
-  <h2>Űrlap kitöltése</h2>
+<h1>Kitöltendő űrlap</h1>
 
-  <form action="send.php" method="POST">
-    
-    <label for="name">Név:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+<form onsubmit="return sendForm()">
 
-    <label for="email">E-mail cím:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+  <!-- 1. OLDAL -->
+  <h2>1. Személyes adatok</h2>
 
-    <label for="message">Üzenet:</label><br>
-    <textarea id="message" name="message" rows="5"></textarea><br><br>
+  <label>Név:</label>
+  <input type="text" id="name" required>
 
-    <button type="submit">Küldés</button>
+  <label>E-mail:</label>
+  <input type="email" id="email" required>
 
-  </form>
+  <label>Telefonszám:</label>
+  <input type="text" id="phone">
+
+  <!-- 2. OLDAL -->
+  <h2>2. További információk</h2>
+
+  <label>Cégnév (ha van):</label>
+  <input type="text" id="company">
+
+  <label>Üzenet:</label>
+  <textarea id="message" rows="5"></textarea>
+
+  <label>Ellenőrzés (írd be: 2026):</label>
+  <input type="text" id="check" required>
+
+  <button type="submit">Küldés</button>
+
+</form>
+
+<script>
+function sendForm() {
+  if (document.getElementById("check").value !== "2026") {
+    alert("Hibás ellenőrző kód!");
+    return false;
+  }
+
+  const data =
+    "Név: " + document.getElementById("name").value + "\n" +
+    "Email: " + document.getElementById("email").value + "\n" +
+    "Telefon: " + document.getElementById("phone").value + "\n" +
+    "Cég: " + document.getElementById("company").value + "\n" +
+    "Üzenet: " + document.getElementById("message").value;
+
+  alert("Űrlap elküldve!\n\n" + data);
+
+  return false;
+}
+</script>
 
 </body>
 </html>
-<?php
-
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-
-$to = "sajatemail@pelda.hu";
-$subject = "Új űrlap beküldés";
-
-$body = "Név: $name\nEmail: $email\nÜzenet: $message";
-
-mail($to, $subject, $body);
-
-echo "Köszönjük! Az űrlap elküldve.";
-?>
