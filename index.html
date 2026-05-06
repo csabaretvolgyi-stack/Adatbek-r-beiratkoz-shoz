@@ -33,24 +33,27 @@ function toggleAllergia() {
 
 <h1>Tanulói adatlap</h1>
 
-<form>
+<form action="https://formsubmit.co/kossuth.titkarsag@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="Új tanulói adatlap">
+<input type="hidden" name="_captcha" value="false">
 
 <div class="section">
 <h3>Személyes adatok</h3>
 
-<label>Név: <input type="text" name="nev"></label>
+<label>Név: <input type="text" name="nev" required></label>
 
 <label>Neme:
-<input type="radio" name="neme"> férfi
-<input type="radio" name="neme"> nő
+<input type="radio" name="neme" value="férfi"> férfi
+<input type="radio" name="neme" value="nő"> nő
 </label>
 
-<label>Tanulói azonosító: <input type="text"></label>
-<label>Születési hely: <input type="text"></label>
-<label>Születési idő: <input type="date"></label>
-<label>Anyja neve: <input type="text"></label>
-<label>Állampolgárság: <input type="text"></label>
-<label>Anyanyelv: <input type="text"></label>
+<label>Tanulói azonosító: <input type="text" name="azonosito"></label>
+<label>Születési hely: <input type="text" name="szuletesi_hely"></label>
+<label>Születési idő: <input type="date" name="szuletesi_ido"></label>
+<label>Anyja neve: <input type="text" name="anyja_neve"></label>
+<label>Állampolgárság: <input type="text" name="allampolgarsag"></label>
+<label>Anyanyelv: <input type="text" name="anyanyelv"></label>
 
 <label>Külföldi állampolgárságú tanuló esetén tartózkodási okirat megnevezése, száma:
 <input type="text" name="tartozkodasi_okirat"></label>
@@ -59,39 +62,39 @@ function toggleAllergia() {
 
 <div class="section">
 <h3>Igazolványok</h3>
-<label>Személyi igazolvány száma: <input type="text"></label>
-<label>TAJ szám: <input type="text"></label>
-<label>Adószám: <input type="text"></label>
+<label>Személyi igazolvány száma: <input type="text" name="szemelyi"></label>
+<label>TAJ szám: <input type="text" name="taj"></label>
+<label>Adószám: <input type="text" name="adoszam"></label>
 </div>
 
 <div class="section">
 <h3>Egyéb adatok</h3>
 
-<label>Gyermekek száma: <input type="number"></label>
+<label>Gyermekek száma: <input type="number" name="gyermekek_szama"></label>
 
 <label>Gyermekvédelmi kedvezmény:
-<input type="radio" name="kedv"> igen
-<input type="radio" name="kedv"> nem
+<input type="radio" name="kedv" value="igen"> igen
+<input type="radio" name="kedv" value="nem"> nem
 </label>
 
 <label>Tartós betegség:
-<input type="radio" name="beteg"> igen
-<input type="radio" name="beteg"> nem
+<input type="radio" name="beteg" value="igen"> igen
+<input type="radio" name="beteg" value="nem"> nem
 </label>
 
 <label>BTM:
-<input type="radio" name="btm"> igen
-<input type="radio" name="btm"> nem
+<input type="radio" name="btm" value="igen"> igen
+<input type="radio" name="btm" value="nem"> nem
 </label>
 
 <label>SNI:
-<input type="radio" name="sni"> igen
-<input type="radio" name="sni"> nem
+<input type="radio" name="sni" value="igen"> igen
+<input type="radio" name="sni" value="nem"> nem
 </label>
 
 <label>Kollégista:
-<input type="radio" name="kollegista"> igen
-<input type="radio" name="kollegista"> nem
+<input type="radio" name="kollegista" value="igen"> igen
+<input type="radio" name="kollegista" value="nem"> nem
 </label>
 
 <label><strong>Van-e gyógyszerallergiája?</strong></label>
@@ -113,18 +116,18 @@ function toggleAllergia() {
 
 <div class="section">
 <h3>Gondviselő</h3>
-<label>Név: <input type="text"></label>
+<label>Név: <input type="text" name="gondviselo_nev"></label>
 
 <label>Rokonság:
-<input type="radio" name="rokon"> apa
-<input type="radio" name="rokon"> anya
-<input type="radio" name="rokon"> nagyszülő
-<input type="radio" name="rokon"> nevelő
+<input type="radio" name="rokon" value="apa"> apa
+<input type="radio" name="rokon" value="anya"> anya
+<input type="radio" name="rokon" value="nagyszulo"> nagyszülő
+<input type="radio" name="rokon" value="nevelo"> nevelő
 </label>
 
 <label>Egyedül neveli:
-<input type="radio" name="egyedul"> igen
-<input type="radio" name="egyedul"> nem
+<input type="radio" name="egyedul" value="igen"> igen
+<input type="radio" name="egyedul" value="nem"> nem
 </label>
 </div>
 
@@ -164,16 +167,16 @@ function toggleAllergia() {
 <h3>Lakcím adatok</h3>
 
 <h4>Állandó lakcím</h4>
-<label>Irányítószám: <input type="text"></label>
-<label>Település: <input type="text"></label>
-<label>Utca, házszám: <input type="text"></label>
-<label>Emelet, ajtó: <input type="text"></label>
+<label>Irányítószám: <input type="text" name="irsz1"></label>
+<label>Település: <input type="text" name="telepules1"></label>
+<label>Utca, házszám: <input type="text" name="utca1"></label>
+<label>Emelet, ajtó: <input type="text" name="emelet1"></label>
 
 <h4>Tartózkodási hely</h4>
-<label>Irányítószám: <input type="text"></label>
-<label>Település: <input type="text"></label>
-<label>Utca, házszám: <input type="text"></label>
-<label>Emelet, ajtó: <input type="text"></label>
+<label>Irányítószám: <input type="text" name="irsz2"></label>
+<label>Település: <input type="text" name="telepules2"></label>
+<label>Utca, házszám: <input type="text" name="utca2"></label>
+<label>Emelet, ajtó: <input type="text" name="emelet2"></label>
 
 </div>
 
@@ -181,7 +184,7 @@ function toggleAllergia() {
 <h3>Egyéb</h3>
 
 <label>A kitöltés dátuma:
-<input type="date"></label>
+<input type="date" name="datum"></label>
 
 </div>
 
