@@ -18,12 +18,12 @@
 <script>
 function toggleAllergia() {
     const igen = document.getElementById("allergia_igen");
-    const mező = document.getElementById("allergia_reszletek");
+    const mezo = document.getElementById("allergia_reszletek");
 
     if (igen.checked) {
-        mező.classList.remove("hidden");
+        mezo.classList.remove("hidden");
     } else {
-        mező.classList.add("hidden");
+        mezo.classList.add("hidden");
     }
 }
 </script>
@@ -51,6 +51,10 @@ function toggleAllergia() {
 <label>Anyja neve: <input type="text"></label>
 <label>Állampolgárság: <input type="text"></label>
 <label>Anyanyelv: <input type="text"></label>
+
+<label>Külföldi állampolgárságú tanuló esetén tartózkodási okirat megnevezése, száma:
+<input type="text" name="tartozkodasi_okirat"></label>
+
 </div>
 
 <div class="section">
@@ -129,24 +133,28 @@ function toggleAllergia() {
 
 <table>
 <tr>
-<th></th>
+<th>Kapcsolat</th>
+<th>Név</th>
 <th>Telefonszám</th>
 <th>E-mail</th>
 </tr>
 <tr>
 <td>Apa</td>
-<td><input type="text"></td>
-<td><input type="email"></td>
+<td><input type="text" name="apa_nev"></td>
+<td><input type="text" name="apa_tel"></td>
+<td><input type="email" name="apa_email"></td>
 </tr>
 <tr>
 <td>Anya</td>
-<td><input type="text"></td>
-<td><input type="email"></td>
+<td><input type="text" name="anya_nev"></td>
+<td><input type="text" name="anya_tel"></td>
+<td><input type="email" name="anya_email"></td>
 </tr>
 <tr>
 <td>Tanuló</td>
-<td><input type="text"></td>
-<td><input type="email"></td>
+<td><input type="text" name="tanulo_nev"></td>
+<td><input type="text" name="tanulo_tel"></td>
+<td><input type="email" name="tanulo_email"></td>
 </tr>
 </table>
 
