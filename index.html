@@ -26,10 +26,17 @@ function toggleAllergia() {
         mezo.classList.add("hidden");
     }
 }
+
+function setDatumIdo() {
+    const now = new Date();
+    const iso = now.toISOString().slice(0,16);
+    document.getElementById("datum").value = iso;
+}
 </script>
 
 </head>
-<body>
+
+<body onload="setDatumIdo()">
 
 <h1>Tanulói adatlap</h1>
 
@@ -55,7 +62,7 @@ function toggleAllergia() {
 <label>Állampolgárság: <input type="text" name="allampolgarsag"></label>
 <label>Anyanyelv: <input type="text" name="anyanyelv"></label>
 
-<label>Külföldi állampolgárságú tanuló esetén tartózkodási okirat megnevezése, száma:
+<label>Külföldi állampolgárságú tanuló esetén tartózkodási okirat:
 <input type="text" name="tartozkodasi_okirat"></label>
 
 </div>
@@ -115,23 +122,6 @@ function toggleAllergia() {
 </div>
 
 <div class="section">
-<h3>Gondviselő</h3>
-<label>Név: <input type="text" name="gondviselo_nev"></label>
-
-<label>Rokonság:
-<input type="radio" name="rokon" value="apa"> apa
-<input type="radio" name="rokon" value="anya"> anya
-<input type="radio" name="rokon" value="nagyszulo"> nagyszülő
-<input type="radio" name="rokon" value="nevelo"> nevelő
-</label>
-
-<label>Egyedül neveli:
-<input type="radio" name="egyedul" value="igen"> igen
-<input type="radio" name="egyedul" value="nem"> nem
-</label>
-</div>
-
-<div class="section">
 <h3>Elérhetőségek</h3>
 
 <table>
@@ -164,45 +154,11 @@ function toggleAllergia() {
 </div>
 
 <div class="section">
-<h3>Lakcím adatok</h3>
-
-<h4>Állandó lakcím</h4>
-<label>Irányítószám: <input type="text" name="irsz1"></label>
-<label>Település: <input type="text" name="telepules1"></label>
-<label>Utca, házszám: <input type="text" name="utca1"></label>
-<label>Emelet, ajtó: <input type="text" name="emelet1"></label>
-
-<h4>Tartózkodási hely</h4>
-<label>Irányítószám: <input type="text" name="irsz2"></label>
-<label>Település: <input type="text" name="telepules2"></label>
-<label>Utca, házszám: <input type="text" name="utca2"></label>
-<label>Emelet, ajtó: <input type="text" name="emelet2"></label>
-
-</div>
-
-<div class="section">
 <h3>Egyéb</h3>
 
-<label>A kitöltés dátuma:
-<input type="date" name="datum"></label>
+<label>A kitöltés időpontja:
+<input type="datetime-local" id="datum" name="datum"></label>
 
-</div>
-
-<div class="signature">
-<div class="sig-box">
-<p>______________________</p>
-<p>Apa aláírása</p>
-</div>
-
-<div class="sig-box">
-<p>______________________</p>
-<p>Anya aláírása</p>
-</div>
-
-<div class="sig-box">
-<p>______________________</p>
-<p>Tanuló aláírása</p>
-</div>
 </div>
 
 <br>
